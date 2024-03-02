@@ -1,17 +1,24 @@
 import keyword
 import string
 
+import keyword
+import string
+
 example_word = "super_duper_value"
 
-upd_symbols = string.punctuation.replace('_', '')
-
+symbol_found = False
 for char in example_word:
-    if char in upd_symbols:
-        print(False)
+    if char in string.punctuation and char != "_":
+        symbol_found = True
         break
-    if example_word != example_word.lower() or example_word in keyword.kwlist or example_word.count("_") > 1 or example_word[0].isdigit() or example_word.count(" "):
-        print(False)
-        break
+
+if symbol_found:
+    print(False)
+elif example_word != example_word.lower() \
+        or example_word in keyword.kwlist \
+        or example_word[0].isdigit() \
+        or example_word.count(" "):
+    print(False)
 else:
     print(True)
 
